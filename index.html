@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Undangan Pernikahan Nova & Agus</title>
+
+  <!-- Google Font untuk Judul -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- CSS Utama -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 70px;
+      color: #ff2675;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Musik Latar -->
+<audio id="background-music" autoplay loop>
+  <source src="Musik3.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung audio.
+</audio>
+
+<!-- Background -->
+<div class="background-overlay"></div>
+
+<!-- Konten Undangan -->
+<div class="container">
+
+  <h1 class="title fade-in">Undangan Pernikahan</h1>
+
+  <div class="couple-names">
+    <h2 class="outline-text fade-in">Nova Lia Hasibuan</h2>
+    <img src="Gambar1.png" alt="Nova Lia Hasibuan" class="photo">
+    <p>Putri dari Bapak Alm. Basir Hasibuan dan Ibu Mariyam</p>
+
+    <h2 class="outline-text fade-in">Agus Salim</h2>
+    <img src="Gambar2.png" alt="Agus Salim" class="photo">
+    <p>Putra dari Bapak Syaifuddin dan Ibu Anita</p>
+  </div>
+
+  <div class="event-details">
+    <h3>Akad Nikah</h3>
+    <p>Sabtu, 6 Juni 2025<br>
+    Pukul 10.00 WIB Sampai selesai</p>
+
+    <h3>Resepsi</h3>
+    <p>Minggu, 7 Juni 2025<br>
+    Pukul 10.00 WIB sampai selesai</p>
+
+    <p>Alamat: Jl. Kampung Baru Kuala Dusun I, Desa Sei Sakat</p>
+
+    <a href="https://maps.google.com/?q=Jl.+Kampung+Baru+Kuala+Dusun+I+Desa+Sei+Sakat" target="_blank" class="btn-maps">Lihat Lokasi</a>
+  </div>
+
+  <div class="gallery">
+    <h3>Galeri</h3>
+    <div class="gallery-photos">
+        <span class="close">&times;</span>
+        <img src="Gambar1.png" alt="Galeri Foto 1" class="zoom-in">
+        <img src="Gambar2.png" alt="Galeri Foto 2" class="zoom-in">
+        <img src="Gambar3.png" alt="Galeri Foto 3" class="zoom-in">
+    </div>
+  </div>
+
+<div class="rsvp">
+  <h3>RSVP & Ucapan</h3>
+  <p>Silakan klik tombol di bawah ini untuk mengirim konfirmasi kehadiran atau ucapan melalui WhatsApp:</p>
+  <a href="https://wa.me/6289605313322?text=Halo%2C%20saya%20ingin%20mengonfirmasi%20kehadiran%20untuk%20acara%20pernikahan%20Nova%20dan%20Agus." target="_blank" class="rsvp-btn">
+    Kirim RSVP via WhatsApp
+  </a>
+</div>
+
+
+  <div class="rekening">
+  <h3>Nomor Rekening</h3>
+  <p>RAHMADANI FAUJA HRP</p>
+  <p>158501003942533</p>
+  <p>BANK BRI</p>
+</div>
+
+  <div class="closing">
+    <h3>Terima Kasih</h3>
+    <p>"Cinta sejati adalah ketika kebahagiaan orang lain lebih penting dari kebahagiaanmu sendiri."</p>
+  </div>
+
+</div>
+
+<!-- Tombol Play Musik -->
+<button id="play-music-btn" class="music-button">🎵 Putar Musik</button>
+
+<script src="script.js"></script>
+<script>
+  // Fungsi untuk tombol putar musik
+  document.getElementById('play-music-btn').addEventListener('click', function() {
+    var audio = document.getElementById('background-music');
+    if (audio.paused) {
+      audio.play();
+      this.textContent = '🎵 Musik Dihentikan';
+    } else {
+      audio.pause();
+      this.textContent = '🎵 Putar Musik';
+    }
+  });
+
+  // Fungsi untuk menangani pengiriman RSVP
+  document.getElementById('rsvp-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Menghindari pengiriman form secara default
+    const name = event.target.querySelector('input[type="text"]').value;
+    const message = event.target.querySelector('textarea').value;
+    const rsvpList = document.getElementById('rsvp-list');
+    const rsvpItem = document.createElement('div');
+    rsvpItem.innerHTML = `<p><strong>${name}</strong>: ${message}</p>`;
+    rsvpList.appendChild(rsvpItem);
+    event.target.reset(); // Menghapus form setelah dikirim
+  });
+</script>
+
+</body>
+</html>

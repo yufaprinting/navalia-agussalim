@@ -1,0 +1,254 @@
+/* ===== GLOBAL ===== */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  color: #000000;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+}
+
+/* ===== LATAR BELAKANG ===== */
+.background-overlay {
+  background: url('latar.jpg') no-repeat center center/cover;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  filter: brightness(100%);
+  z-index: -40;
+}
+
+/* ===== KONTEN UTAMA ===== */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 3em;
+  color: #ff0f7f;
+  margin-bottom: 60px;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff;
+}
+
+/* ===== NAMA PASANGAN ===== */
+.couple-names h2 {
+  margin-top: 20px;
+  font-size: 2em;
+}
+
+.photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 10px 0;
+  border: 7px solid #f70489;
+}
+
+/* ===== DETAIL ACARA, GALERI, RSVP, PENUTUP ===== */
+.event-details,
+.gallery,
+.rsvp,
+.closing {
+  margin: 30px 0;
+}
+
+/* ===== LINK GOOGLE MAPS ===== */
+.btn-maps {
+  background-color: #d6336c;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 20px;
+}
+
+/* ===== GALERI FOTO ===== */
+.gallery-photos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gallery-photos img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: zoomIn 1s ease-out forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-photos img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(168, 0, 28, 0.6); /* Pink glow */
+}
+
+/* Animasi delay */
+.gallery-photos img:nth-child(1) { animation-delay: 0.2s; }
+.gallery-photos img:nth-child(2) { animation-delay: 0.5s; }
+.gallery-photos img:nth-child(3) { animation-delay: 0.8s; }
+
+/* ===== FORM RSVP ===== */
+form input,
+form textarea {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #d6336c;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #d6336c;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Daftar RSVP */
+#rsvp-list {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== EFEK TEKS & ANIMASI ===== */
+.outline-text {
+  font-size: 2em;
+  color: #ff0080;
+  text-shadow:
+    2px 2px 4px rgba(255, 255, 255, 0.7),
+    -2px -2px 4px rgba(255, 255, 255, 0.7),
+    2px -2px 4px rgba(255, 255, 255, 0.7),
+    -2px 2px 4px rgba(255, 255, 255, 0.7);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInMove 1.5s ease-out forwards;
+}
+
+@keyframes fadeInMove {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== LIGHTBOX (jika digunakan) ===== */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.close {
+  position: absolute;
+  top: 50px;
+  right: 70px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #ff69b4;
+}
+
+/* ===== TOMBOL MUSIK ===== */
+.music-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffc107;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: background 0.3s;
+}
+
+.music-button:hover {
+  background-color: #e0a800;
+}
+.rekening {
+  background-color: rgba(255, 255, 255, 0.8); /* putih semi-transparan */
+  border: 2px solid #a52760;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 30px auto;
+  max-width: 300px;
+}
+
+.rekening h3 {
+  color: 
+  #b03060;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.rekening p {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #333;
+}
+.rsvp-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ff076e;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.rsvp-btn:hover {
+  background-color: #1DA851;
+}
+
